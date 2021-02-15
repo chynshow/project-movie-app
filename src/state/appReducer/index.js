@@ -5,6 +5,9 @@ export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
 export const FETCH_MOVIES_FAIL = 'FETCH_MOVIES_FAIL';
 export const SET_PAGE = 'SET_PAGE';
+export const SET_MOVIE_ID = 'SET_MOVIE_ID';
+export const FETCH_MOVIE_SUCCESS = 'FETCH_MOVIE_SUCCESS';
+export const FETCH_MOVIE_FAIL = 'FETCH_MOVIE_FAIL';
 
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
@@ -23,14 +26,20 @@ export default (state, action) => {
         ...state,
         loading: false,
         movies: removeDuplicates([...state.movies, ...payload.results], 'id'),
-        totalPages: payload.totalPages,
-        totalResult: payload.totalResult,
+        totalPages: payload.total_pages,
+        totalResult: payload.total_results,
       };
     case FETCH_MOVIES_FAIL:
       return { ...state, loading: false, movies: [] };
 
     case SET_PAGE:
       return { ...state, startPage: state.startPage + 1 };
+    case SET_MOVIE_ID:
+      return { ...state, movieId: payload };
+    case FETCH_MOVIE_SUCCESS:
+      return { ...state, loading: false, movie: payload };
+    case FETCH_MOVIE_FAIL:
+      return { ...state, loading: false, movie: null };
 
     case SHOW_ALERT:
       return { ...state, alertMsg: payload };
