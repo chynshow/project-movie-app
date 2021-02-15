@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Button = ({ onClick, children, ...rest }) => {
+const Button = ({ handleOnClick, className, children, ...rest }) => {
   return (
-    <button onClick={onClick} {...rest}>
+    <button
+      className={`rounded-sm ${className}`}
+      onClick={handleOnClick}
+      {...rest}
+    >
       {children}
     </button>
   );

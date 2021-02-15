@@ -3,15 +3,14 @@ import MovieList from '../MovieList';
 import Header from './../Header';
 import Alert from './../Alert';
 import MovieDetails from '../MovieDetails';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Favorites from '../Favorites';
 
 const App = () => {
   return (
-    <main>
+    <main className='flex flex-col border justify-center items-center min-h-screen'>
       <Alert />
       <Header />
-      <NavLink to='/favorites'>Favorites</NavLink>
       <Switch>
         <Route exact path='/' component={MovieList} />
         <Route exact path='/favorites' component={Favorites} />

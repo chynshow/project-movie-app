@@ -14,14 +14,14 @@ const Input = ({
     <>
       <input
         type={type}
-        className={className}
+        className={`outline-none bg-transparent italic border-dashed border-b ${className}`}
         name={name}
         value={value}
         placeholder={placeholder}
         onChange={handleOnChange}
         {...rest}
       />
-      {label && <label>{label}</label>}
+      {label && <label className='py-2 text-xs'>{label}</label>}
     </>
   );
 };

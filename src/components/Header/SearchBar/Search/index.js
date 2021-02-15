@@ -6,6 +6,7 @@ const Search = ({ handleOnSubmit, setValues, values }) => {
     <form onSubmit={(e) => handleOnSubmit(e)}>
       <Input
         type='text'
+        className='py-2 w-full'
         autoFocus
         name='query'
         placeholder='Which movie are you looking for?'

@@ -4,14 +4,19 @@ import { TitleTertiary } from '../../../Title';
 import Input from './../../../Input';
 import Genres from './Genres';
 
-const AdvancedSearch = ({ handleOnSubmit, setValues, values }) => (
-  <form onSubmit={(e) => handleOnSubmit(e)}>
+const AdvancedSearch = ({
+  handleOnSubmit,
+  setValues,
+  values,
+  setShowAdvancedSearch,
+}) => (
+  <form className='flex flex-col pb-8' onSubmit={(e) => handleOnSubmit(e)}>
     <TitleTertiary title='Filter by genres' />
     <Genres setValues={setValues} values={values} />
     <TitleTertiary title='Filter by year' />
     <Input
       label='A filter to limit the results to a specific year (looking at all
-      release dates)'
+      release dates).'
       type='number'
       name='year'
       min='1900'
@@ -28,7 +33,7 @@ const AdvancedSearch = ({ handleOnSubmit, setValues, values }) => (
     <TitleTertiary title='Filter by Rating' />
     <Input
       label='Include movies that have a rating that is greater or equal to the
-    specified value'
+    specified value.'
       type='number'
       name='average'
       placeholder='Movie rating'
@@ -42,7 +47,18 @@ const AdvancedSearch = ({ handleOnSubmit, setValues, values }) => (
         })
       }
     />
-    <Button type='submit'>Search</Button>
+    <div className='flex justify-between py-4'>
+      <Button className='bg-gray-700 text-gray-50 p-2' type='submit'>
+        Apply
+      </Button>
+      <Button
+        className='border-dashed border p-2'
+        type='button'
+        handleOnClick={() => setShowAdvancedSearch(false)}
+      >
+        Cancel
+      </Button>
+    </div>
   </form>
 );
 

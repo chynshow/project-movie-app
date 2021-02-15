@@ -96,10 +96,11 @@ const Genres = ({ setValues, values }) => {
       });
   };
   return (
-    <fieldset>
+    <fieldset className='flex flex-col'>
       {genres.map((genre) => (
-        <label key={genre.id}>
+        <label className='flex items-center' key={genre.id}>
           <Input
+            className='mr-2'
             type='checkbox'
             name={genre.name}
             value={genre.id}

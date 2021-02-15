@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import Search from './Search';
 import AdvancedSearch from './AdvancedSearch';
 import { AppContext } from './../../../state/contextAPI';
+import Button from '../../Button';
+import { CogSVG } from '../../SVGs';
 
 const SearchBar = () => {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
@@ -17,10 +19,15 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}>
-        Toggle
-      </button>
+    <div className='relative'>
+      {!showAdvancedSearch && (
+        <Button
+          className='absolute right-full top-1'
+          handleOnClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
+        >
+          <CogSVG className='w-8 mx-3' />
+        </Button>
+      )}
       {!showAdvancedSearch ? (
         <Search
           handleOnSubmit={handleOnSubmit}
@@ -32,6 +39,7 @@ const SearchBar = () => {
           handleOnSubmit={handleOnSubmit}
           setValues={setValues}
           values={values}
+          setShowAdvancedSearch={setShowAdvancedSearch}
         />
       )}
     </div>

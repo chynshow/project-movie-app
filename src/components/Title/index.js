@@ -9,5 +9,5 @@ export const TitleSecondary = ({ title }) => {
 };
 
 export const TitleTertiary = ({ title }) => {
-  return <h3>{title}</h3>;
+  return <h3 className='font-bold text-xl uppercase py-2'>{title}</h3>;
 };
