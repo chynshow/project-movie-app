@@ -5,6 +5,7 @@ const Search = ({ handleOnSubmit, setValues, values }) => {
   return (
     <form onSubmit={(e) => handleOnSubmit(e)}>
       <Input
+        required
         type='text'
         className='py-2 w-full'
         autoFocus

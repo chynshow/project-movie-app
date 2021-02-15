@@ -20,7 +20,13 @@ export default (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_SEARCH_PARAMS:
-      return { ...state, searchParams: payload, movies: [], startPage: 1 };
+      return {
+        ...state,
+        searchParams: payload,
+        movies: [],
+        startPage: 1,
+        totalResult: null,
+      };
     case FETCH_REQUEST:
       return { ...state, loading: true };
 

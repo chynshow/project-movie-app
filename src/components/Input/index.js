@@ -21,7 +21,7 @@ const Input = ({
         onChange={handleOnChange}
         {...rest}
       />
-      {label && <label className='py-2 text-xs'>{label}</label>}
+      {label && <label className='py-2 text-xs max-w-xs'>{label}</label>}
     </>
   );
 };

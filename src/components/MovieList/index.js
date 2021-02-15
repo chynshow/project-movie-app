@@ -2,7 +2,9 @@ import React, { useCallback, useContext, useRef } from 'react';
 import Loader from './../Loader';
 import { AppContext } from '../../state/contextAPI';
 import MovieCard from '../MovieCard';
-import { TitleSecondary, TitleTertiary } from './../Title';
+import { TitleSecondary } from './../Title';
+import ScrollToTop from 'react-scroll-up';
+import { ChevronUp } from '../SVGs';
 
 const MovieList = () => {
   const {
@@ -34,8 +36,8 @@ const MovieList = () => {
   return (
     <div className='flex flex-col'>
       {totalResult && (
-        <TitleTertiary
-          className='text-gray-700 text-center'
+        <TitleSecondary
+          className='text-gray-500 italic text-center'
           title={`Found ${totalResult} movies`}
         />
       )}
@@ -51,6 +53,9 @@ const MovieList = () => {
         })}
         {loading && <Loader />}
       </ul>
+      <ScrollToTop showUnder={300}>
+        <ChevronUp className='w-10' />
+      </ScrollToTop>
     </div>
   );
 };
