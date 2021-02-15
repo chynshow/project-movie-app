@@ -12,12 +12,15 @@ export const FETCH_MOVIE_FAIL = 'FETCH_MOVIE_FAIL';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
 
+export const ADD_REMOVE_FAVORITE = 'ADd_REMOVE_FAVORITE';
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_SEARCH_PARAMS:
-      return { ...state, searchParams: payload, movies: [] };
+      return { ...state, searchParams: payload, movies: [], startPage: 1 };
     case FETCH_REQUEST:
       return { ...state, loading: true };
 
@@ -45,6 +48,14 @@ export default (state, action) => {
       return { ...state, alertMsg: payload };
     case HIDE_ALERT:
       return { ...state, alertMsg: null };
+
+    case ADD_REMOVE_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.some((movie) => movie.id === payload.id)
+          ? [...state.favorites.filter((movie) => movie.id === payload)]
+          : [...state.favorites, payload],
+      };
 
     default:
       return state;

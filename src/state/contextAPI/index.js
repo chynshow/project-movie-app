@@ -1,11 +1,14 @@
 import { createContext, useEffect, useReducer } from 'react';
 import appReducer, {
+  ADD_REMOVE_FAVORITE,
+  ADD_TO_FAVORITES,
   FETCH_MOVIES_FAIL,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIE_FAIL,
   FETCH_MOVIE_SUCCESS,
   FETCH_REQUEST,
   HIDE_ALERT,
+  REMOVE_FROM_FAVORITES,
   SET_MOVIE_ID,
   SET_PAGE,
   SET_SEARCH_PARAMS,
@@ -18,6 +21,7 @@ const initState = {
   startPage: 1,
   totalPages: null,
   totalResult: null,
+  favorites: JSON.parse(localStorage.getItem('favorites')) || [],
   alertMsg: null,
   searchParams: {
     query: '',
@@ -119,6 +123,9 @@ export const AppProvider = ({ children }) => {
   const setMovieId = (movieId) =>
     dispatch({ type: SET_MOVIE_ID, payload: movieId });
 
+  const addRemoveFavorite = (movie) =>
+    dispatch({ type: ADD_REMOVE_FAVORITE, payload: movie });
+
   return (
     <AppContext.Provider
       value={{
@@ -133,6 +140,8 @@ export const AppProvider = ({ children }) => {
         alertMsg: state.alertMsg,
         setMovieId,
         movie: state.movie,
+        addRemoveFavorite,
+        favorites: state.favorites,
       }}
     >
       {children}

@@ -10,6 +10,7 @@ const SearchBar = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+
     setSearchParams({ ...values, advancedSearch: showAdvancedSearch });
     if (showAdvancedSearch) return setShowAdvancedSearch(false);
     setValues({ query: '', year: '', genres: [], average: '' });
