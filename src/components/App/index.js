@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './../Header';
 
 const App = () => {
-  return <div>Movie App</div>;
+  return (
+    <main>
+      <Header />
+    </main>
+  );
 };
 
 export default App;
