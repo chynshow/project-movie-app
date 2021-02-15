@@ -53,7 +53,7 @@ export default (state, action) => {
       return {
         ...state,
         favorites: state.favorites.some((movie) => movie.id === payload.id)
-          ? [...state.favorites.filter((movie) => movie.id === payload)]
+          ? [...state.favorites.filter((movie) => movie.id !== payload.id)]
           : [...state.favorites, payload],
       };
 

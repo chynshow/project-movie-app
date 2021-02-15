@@ -40,6 +40,10 @@ export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initState);
 
   useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(state.favorites || []));
+  }, [state.favorites]);
+
+  useEffect(() => {
     if (state.searchParams.query) {
       getMovies(state.searchParams.query, state.startPage);
     }

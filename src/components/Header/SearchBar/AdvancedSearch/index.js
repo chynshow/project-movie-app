@@ -11,9 +11,9 @@ const AdvancedSearch = ({
   setShowAdvancedSearch,
 }) => (
   <form className='flex flex-col pb-8' onSubmit={(e) => handleOnSubmit(e)}>
-    <TitleTertiary title='Filter by genres' />
+    <TitleTertiary className='font-bold' title='Filter by genres' />
     <Genres setValues={setValues} values={values} />
-    <TitleTertiary title='Filter by year' />
+    <TitleTertiary className='font-bold' title='Filter by year' />
     <Input
       label='A filter to limit the results to a specific year (looking at all
       release dates).'
@@ -30,7 +30,7 @@ const AdvancedSearch = ({
         })
       }
     />
-    <TitleTertiary title='Filter by Rating' />
+    <TitleTertiary className='font-bold' title='Filter by Rating' />
     <Input
       label='Include movies that have a rating that is greater or equal to the
     specified value.'
