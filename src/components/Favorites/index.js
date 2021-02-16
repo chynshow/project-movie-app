@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../state/contextAPI';
-import { GoHome } from '../Button';
+import GoBack from '../GoBackBtn';
 import MovieCard from '../MovieCard';
 import ScrollToTop from 'react-scroll-up';
 import { ChevronUp, Times } from '../SVGs';
@@ -10,8 +10,12 @@ const Favorites = () => {
 
   return (
     <div>
-      <GoHome />
-      <div className='flex justify-center container flex-wrap'>
+      <GoBack title='Home' className='w-96' />
+      <div
+        className={`${
+          favorites.length > 0 ? 'items-container' : 'empty-items-container'
+        }`}
+      >
         {favorites.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -29,8 +33,8 @@ export default Favorites;
 const InfoBlock = ({ favorites }) => (
   <>
     {!favorites && (
-      <p className='p-0 flex flex-col items-center'>
-        <Times className='w-48' />
+      <p className='p-4 text-sm md:text-base flex flex-col items-center'>
+        <Times className='w-36 md:w-48' />
         You don't have any favorite movies yet!
       </p>
     )}

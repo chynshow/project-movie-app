@@ -5,26 +5,24 @@ import { TitleTertiary } from '../Title';
 
 const MovieCard = ({ movie, reference }) => {
   return (
-    <div
+    <NavLink
       ref={reference ? reference : null}
-      className='flex flex-col p-4 items-center justify-between relative flex-grow'
+      className='item-card'
+      to={`/movies-details/${movie.id}`}
     >
-      <NavLink className='relative' to={`/movies-details/${movie.id}`}>
-        <MovieImage
-          className='filter-grayscale hover:filter-none'
-          movieImg={movie.poster_path}
-        />
+      <MovieImage
+        className='filter-grayscale hover:filter-none'
+        movieImg={movie.poster_path}
+      />
+      <div>
         <MovieInfo
           label='Average'
           className='pt-4 text-center'
           info={movie.vote_average}
         />
-        <TitleTertiary
-          className='text-center text-xs max-w-xxs'
-          title={movie.title}
-        />
-      </NavLink>
-    </div>
+        <TitleTertiary className='text-center px-2' title={movie.title} />
+      </div>
+    </NavLink>
   );
 };
 

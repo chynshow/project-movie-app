@@ -72,7 +72,7 @@ export const AppProvider = ({ children }) => {
       });
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_FAIL });
-      showAlert('Server Error!');
+      showAlert('Server errors, try to reload the page!');
       console.error(error);
     }
   };
@@ -93,7 +93,7 @@ export const AppProvider = ({ children }) => {
       dispatch({ type: FETCH_MOVIES_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_SUCCESS });
-      showAlert('Server errors!');
+      showAlert('Server errors, try to reload the page!');
       console.error(error);
     }
   };
@@ -108,7 +108,7 @@ export const AppProvider = ({ children }) => {
       dispatch({ type: FETCH_MOVIE_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: FETCH_MOVIE_FAIL });
-      showAlert('Server errors!');
+      showAlert('Server errors, try to reload the page!');
       console.error(error);
     }
   };

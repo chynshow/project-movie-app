@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../../Button';
 import { TitleTertiary } from '../../../Title';
 import Input from './../../../Input';
 import Genres from './Genres';
@@ -25,7 +24,6 @@ const AdvancedSearch = ({
       handleOnChange={(e) =>
         setValues({
           ...values,
-
           [e.target.name]: e.target.value,
         })
       }
@@ -42,22 +40,21 @@ const AdvancedSearch = ({
       handleOnChange={(e) =>
         setValues({
           ...values,
-
           [e.target.name]: e.target.value,
         })
       }
     />
     <div className='flex justify-between py-4'>
-      <Button className='bg-gray-700 text-gray-50 p-2' type='submit'>
+      <button className='btn--primary' type='submit'>
         Apply
-      </Button>
-      <Button
-        className='border-dashed border p-2'
+      </button>
+      <button
+        className='btn--secondary'
         type='button'
-        handleOnClick={() => setShowAdvancedSearch(false)}
+        onClick={() => setShowAdvancedSearch(false)}
       >
         Cancel
-      </Button>
+      </button>
     </div>
   </form>
 );

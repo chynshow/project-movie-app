@@ -2,33 +2,30 @@ import React, { useContext, useState } from 'react';
 import Search from './Search';
 import AdvancedSearch from './AdvancedSearch';
 import { AppContext } from './../../../state/contextAPI';
-import Button from '../../Button';
 import { CogSVG } from '../../SVGs';
-import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
   const { searchParams, setSearchParams } = useContext(AppContext);
   const [values, setValues] = useState(searchParams);
-  const { push } = useHistory();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setSearchParams({ ...values, advancedSearch: showAdvancedSearch });
     setValues({ query: '', year: '', genres: [], average: '' });
-    push('/');
+
     if (showAdvancedSearch) return setShowAdvancedSearch(false);
   };
 
   return (
-    <div className='relative mt-2 '>
+    <div className='relative mt-2 w-full '>
       {!showAdvancedSearch && (
-        <Button
-          className='absolute right-full top-1'
-          handleOnClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
+        <button
+          className='absolute right-full top-2 md:top-1'
+          onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
         >
-          <CogSVG className='w-8 mx-3' />
-        </Button>
+          <CogSVG className='w-6 md:w-8 mx-3' />
+        </button>
       )}
       {!showAdvancedSearch ? (
         <Search

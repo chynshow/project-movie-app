@@ -41,7 +41,8 @@ const MovieList = () => {
           title={`Found ${totalResult} movies`}
         />
       )}
-      <ul className='flex flex-wrap container justify-center'>
+      {/* flex flex-wrap container justify-center */}
+      <ul className='items-container'>
         {movies.map((movie, idx) => {
           if (movies.length === idx + 1) {
             return (
@@ -54,7 +55,7 @@ const MovieList = () => {
         {loading && <Loader />}
       </ul>
       <ScrollToTop showUnder={300}>
-        <ChevronUp className='w-10' />
+        <ChevronUp className='w-8 h-8 bg-gray-700 text-gray-50 rounded-full' />
       </ScrollToTop>
     </div>
   );

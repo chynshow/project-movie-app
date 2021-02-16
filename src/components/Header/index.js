@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import { AppContext } from '../../state/contextAPI';
 import { CameraSVG, HeartSVG, HeartSVGBlack } from '../SVGs';
 import SearchBar from './SearchBar';
@@ -9,28 +9,28 @@ const Header = () => {
 
   return (
     <header className='flex flex-col items-stretch py-4'>
-      <div className='flex justify-center'>
-        <CameraSVG className='w-48' />
+      <div className='flex  md:justify-center'>
+        <CameraSVG className='w-40 md:w-48' />
       </div>
-      <NavLink className='block text-5xl uppercase' to='/'>
+      <NavLink className='block text-4xl md:text-5xl uppercase' to='/'>
         Search movies
       </NavLink>
-      <p className='text-xl flex items-end py-4'>
+      <p className='text-base md:text-xl flex items-end py-4'>
         Find your favorite movies
         <NavLink className='font-bold px-2 relative' to='/favorites'>
           {!!favorites.length ? (
-            <HeartSVGBlack className='w-8' />
+            <HeartSVGBlack className='icon' />
           ) : (
-            <HeartSVG className='w-8' />
+            <HeartSVG className='icon' />
           )}
           {!!favorites.length && (
-            <span className='absolute bottom-0 right-0 mb-4'>
+            <span className='absolute bottom-0 text-sm md:text-base right-0 mb-4'>
               {favorites.length}
             </span>
           )}
         </NavLink>
       </p>
-      <SearchBar />
+      <Route exact path='/' component={SearchBar} />
     </header>
   );
 };
