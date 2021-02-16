@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../../../../Input';
 const genres = [
   {
@@ -114,3 +115,8 @@ const Genres = ({ setValues, values }) => {
 };
 
 export default Genres;
+
+Genres.propTypes = {
+  setValues: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
+};

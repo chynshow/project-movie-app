@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TitleTertiary } from '../../../Title';
 import Input from './../../../Input';
 import Genres from './Genres';
@@ -36,6 +37,7 @@ const AdvancedSearch = ({
       name='average'
       placeholder='Movie rating'
       min='1'
+      max='10'
       value={values.average}
       handleOnChange={(e) =>
         setValues({
@@ -60,3 +62,10 @@ const AdvancedSearch = ({
 );
 
 export default AdvancedSearch;
+
+AdvancedSearch.propTypes = {
+  handleOnSubmit: PropTypes.func.isRequired,
+  setValues: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
+  setShowAdvancedSearch: PropTypes.func.isRequired,
+};

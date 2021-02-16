@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { ArrowBackSVG } from '../SVGs';
 
@@ -15,4 +16,9 @@ const GoBack = ({ title, className }) => {
   );
 };
 
-export default GoBack;
+export default React.memo(GoBack);
+
+GoBack.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};

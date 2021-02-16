@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Input = ({
   type = 'text',
@@ -26,4 +27,14 @@ const Input = ({
   );
 };
 
-export default Input;
+export default React.memo(Input);
+
+Input.propTypes = {
+  type: PropTypes.string,
+  handleOnChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  name: PropTypes.string,
+};

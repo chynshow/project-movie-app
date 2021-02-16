@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MovieInfo, MovieImage } from '../MovieDetails';
 import { TitleTertiary } from '../Title';
@@ -27,3 +28,8 @@ const MovieCard = ({ movie, reference }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired,
+  reference: PropTypes.func,
+};

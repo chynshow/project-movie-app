@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import { AppContext } from '../../state/contextAPI';
-import { CameraSVG, HeartSVG, HeartSVGBlack } from '../SVGs';
+import { CameraSVG, HeartSVGBlack } from '../SVGs';
 import { TitlePrimary } from '../Title';
 import SearchBar from './SearchBar';
 
@@ -19,15 +19,13 @@ const Header = () => {
       <p className='text-base md:text-xl flex items-end py-4'>
         Find your favorite movies
         <NavLink className='font-bold px-2 relative' to='/favorites'>
-          {!!favorites.length ? (
-            <HeartSVGBlack className='icon' />
-          ) : (
-            <HeartSVG className='icon' />
-          )}
           {!!favorites.length && (
-            <span className='absolute bottom-0 text-sm md:text-base right-0 mb-4'>
-              {favorites.length}
-            </span>
+            <>
+              <HeartSVGBlack className='icon' />
+              <span className='absolute bottom-0 text-sm md:text-base right-0 mb-4'>
+                {favorites.length}
+              </span>
+            </>
           )}
         </NavLink>
       </p>

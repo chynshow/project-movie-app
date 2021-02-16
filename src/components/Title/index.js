@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const TitlePrimary = ({ title, className, children }) => {
   return (
@@ -7,6 +8,12 @@ export const TitlePrimary = ({ title, className, children }) => {
       {children}
     </h1>
   );
+};
+
+TitlePrimary.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export const TitleSecondary = ({ title, className, children }) => {
@@ -18,6 +25,12 @@ export const TitleSecondary = ({ title, className, children }) => {
   );
 };
 
+TitleSecondary.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
 export const TitleTertiary = ({ title, className, children }) => {
   return (
     <h3 className={`text-base py-2 ${className}`}>
@@ -25,4 +38,10 @@ export const TitleTertiary = ({ title, className, children }) => {
       {children}
     </h3>
   );
+};
+
+TitleTertiary.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };

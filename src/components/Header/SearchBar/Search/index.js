@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './../../../Input';
 
 const Search = ({ handleOnSubmit, setValues, values }) => {
@@ -24,3 +25,9 @@ const Search = ({ handleOnSubmit, setValues, values }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  handleOnSubmit: PropTypes.func.isRequired,
+  setValues: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
+};
