@@ -2,6 +2,7 @@ import { createContext, useEffect, useReducer } from 'react';
 
 import appReducer, {
   ADD_REMOVE_FAVORITE,
+  CLEAN_SEARCH_PARAMS,
   FETCH_MOVIES_FAIL,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIE_FAIL,
@@ -71,6 +72,7 @@ export const AppProvider = ({ children }) => {
         type: FETCH_MOVIES_SUCCESS,
         payload: data,
       });
+      dispatch({ type: CLEAN_SEARCH_PARAMS });
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_FAIL });
       showAlert('Server errors, try to reload the page!');
@@ -92,6 +94,7 @@ export const AppProvider = ({ children }) => {
       const res = await fetch(url);
       const data = await res.json();
       dispatch({ type: FETCH_MOVIES_SUCCESS, payload: data });
+      dispatch({ type: CLEAN_SEARCH_PARAMS });
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_SUCCESS });
       showAlert('Server errors, try to reload the page!');

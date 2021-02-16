@@ -1,6 +1,7 @@
 import removeDuplicates from '../../helpers/removeDuplicates';
 
 export const SET_SEARCH_PARAMS = 'SET_SEARCH_PARAMS';
+export const CLEAN_SEARCH_PARAMS = 'CLEAN_SEARCH_PARAMS';
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
 export const FETCH_MOVIES_FAIL = 'FETCH_MOVIES_FAIL';
@@ -12,7 +13,7 @@ export const FETCH_MOVIE_FAIL = 'FETCH_MOVIE_FAIL';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
 
-export const ADD_REMOVE_FAVORITE = 'ADd_REMOVE_FAVORITE';
+export const ADD_REMOVE_FAVORITE = 'ADD_REMOVE_FAVORITE';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -26,6 +27,18 @@ export default (state, action) => {
         movies: [],
         startPage: 1,
         totalResult: null,
+      };
+
+    case CLEAN_SEARCH_PARAMS:
+      return {
+        ...state,
+        searchParams: {
+          query: '',
+          advancedSearch: false,
+          genres: [],
+          year: '',
+          average: '',
+        },
       };
     case FETCH_REQUEST:
       return { ...state, loading: true };
