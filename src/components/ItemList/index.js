@@ -8,7 +8,7 @@ const ItemList = ({ children, title, showList }) => {
   return (
     <>
       {showList ? (
-        <div className='border-t border-dashed mt-5'>
+        <div className='border-t border-dashed my-5'>
           <TitleSecondary
             className='text-gray-500 uppercase italic text-center'
             title={title}

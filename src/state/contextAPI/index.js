@@ -73,6 +73,7 @@ export const AppProvider = ({ children }) => {
         payload: data,
       });
       dispatch({ type: CLEAN_SEARCH_PARAMS });
+      if (!data.results.length) return showAlert('Movies not found!');
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_FAIL });
       showAlert('Server errors, try to reload the page!');
@@ -95,6 +96,7 @@ export const AppProvider = ({ children }) => {
       const data = await res.json();
       dispatch({ type: FETCH_MOVIES_SUCCESS, payload: data });
       dispatch({ type: CLEAN_SEARCH_PARAMS });
+      if (!data.results.length) return showAlert('Movies not found!');
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_SUCCESS });
       showAlert('Server errors, try to reload the page!');
@@ -110,6 +112,8 @@ export const AppProvider = ({ children }) => {
       const data = await res.json();
 
       dispatch({ type: FETCH_MOVIE_SUCCESS, payload: data });
+
+      if (!data) return showAlert('Movie not found!');
     } catch (error) {
       dispatch({ type: FETCH_MOVIE_FAIL });
       showAlert('Server errors, try to reload the page!');
@@ -124,7 +128,7 @@ export const AppProvider = ({ children }) => {
   const showAlert = (msg, time = 2000) => {
     dispatch({ type: SHOW_ALERT, payload: msg });
     setTimeout(() => {
-      dispatch({ tyep: HIDE_ALERT });
+      dispatch({ type: HIDE_ALERT });
     }, time);
   };
   const setMovieId = (movieId) =>
