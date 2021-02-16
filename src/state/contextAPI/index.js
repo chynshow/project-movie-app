@@ -1,23 +1,22 @@
 import { createContext, useEffect, useReducer } from 'react';
 import appReducer, {
   ADD_REMOVE_FAVORITE,
-  ADD_TO_FAVORITES,
   FETCH_MOVIES_FAIL,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIE_FAIL,
   FETCH_MOVIE_SUCCESS,
   FETCH_REQUEST,
   HIDE_ALERT,
-  REMOVE_FROM_FAVORITES,
   SET_MOVIE_ID,
   SET_PAGE,
   SET_SEARCH_PARAMS,
   SHOW_ALERT,
 } from '../appReducer';
 
-const initState = {
+export const initState = {
   loading: false,
   movies: [],
+  movie: null,
   startPage: 1,
   totalPages: null,
   totalResult: null,
