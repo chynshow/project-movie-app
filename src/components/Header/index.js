@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className='flex flex-col items-stretch py-4'>
       <div className='flex  md:justify-center'>
-        <CameraSVG className='w-40 md:w-48' />
+        <CameraSVG className='w-40 transform -translate-x-3 md:w-48 md:translate-x-0' />
       </div>
       <NavLink className='block text-4xl md:text-5xl uppercase' to='/'>
         <TitlePrimary title='Search movies' />

@@ -28,7 +28,7 @@ const MovieDetails = () => {
   return (
     <div className='flex flex-col items-center p-6 md:flex-row md:container md:justify-center'>
       <MovieImage movieImg={movie.poster_path} />
-      <div className='pt-4 ml-10'>
+      <div className='pt-4 md:ml-10'>
         <MovieInfo label='Title' info={movie.title} />
         <MovieInfo label='Original Title' info={movie.original_title} />
         <MovieInfo label='Average' info={movie.vote_average} />
@@ -90,11 +90,12 @@ export const MovieInfoArray = ({ label, array }) => {
   return (
     <>
       {!!array.length && (
-        <div className='flex items-center'>
+        <div className='flex items-center flex-wrap'>
           <span className='pr-2 italic font-bold'>{label}:</span>
           {array.map((info, idx) => (
             <span className='px-1' key={idx}>
-              {info.name} {array.length !== idx + 1 ? ',' : ''}
+              {info.name}
+              {array.length !== idx + 1 ? ',' : ''}
             </span>
           ))}
         </div>

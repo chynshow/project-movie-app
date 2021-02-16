@@ -41,7 +41,7 @@
 /* Item Card */
 
 .item-card {
-  @apply shadow-md flex flex-col justify-between items-center rounded-sm overflow-hidden;
+  @apply md:shadow-md flex flex-col justify-between items-center rounded-sm overflow-hidden;
 }
 
 /* Icon */
