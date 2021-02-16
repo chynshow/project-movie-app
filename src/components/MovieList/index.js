@@ -34,6 +34,7 @@ const MovieList = () => {
   return (
     <ItemList
       title={`${!!totalResult ? `Found ${totalResult} movies` : ''}`}
+      showList={!!movies.length}
       className='flex flex-col'
     >
       <ul className='items-container'>

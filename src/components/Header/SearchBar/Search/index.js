@@ -17,7 +17,7 @@ const Search = ({ handleOnSubmit, setValues, values }) => {
           setValues({ ...values, [e.target.name]: e.target.value })
         }
       />
-      <button className='mt-2 btn--primary' type='submit'>
+      <button className='mt-5 btn--primary' type='submit'>
         Search
       </button>
     </form>

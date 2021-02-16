@@ -8,11 +8,7 @@ const Favorites = () => {
   const { favorites } = useContext(AppContext);
 
   return (
-    <ItemList
-      title='Favorite movies'
-      showInfo={!favorites.length}
-      infoMsg="You don't have any favorite movies yet!"
-    >
+    <ItemList showList={!!favorites.length} title='Favorite movies'>
       <GoBack title='Home' className='w-96 md:w-auto' />
       <div
         className={`${
