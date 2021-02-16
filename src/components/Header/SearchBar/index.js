@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Search from './Search';
 import AdvancedSearch from './AdvancedSearch';
 import { AppContext } from './../../../state/contextAPI';
@@ -6,8 +6,13 @@ import { CogSVG } from '../../SVGs';
 
 const SearchBar = () => {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
-  const { searchParams, setSearchParams } = useContext(AppContext);
+  const { searchParams, setSearchParams, cleanSeachParams } = useContext(
+    AppContext
+  );
   const [values, setValues] = useState(searchParams);
+  useEffect(() => {
+    cleanSeachParams();
+  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();

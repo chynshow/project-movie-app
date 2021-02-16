@@ -48,6 +48,7 @@ export const AppProvider = ({ children }) => {
     if (state.searchParams.query) {
       getMovies(state.searchParams.query, state.startPage);
     }
+
     if (state.searchParams.advancedSearch) {
       discoverMovies(state.searchParams, state.startPage);
     }
@@ -72,7 +73,7 @@ export const AppProvider = ({ children }) => {
         type: FETCH_MOVIES_SUCCESS,
         payload: data,
       });
-      dispatch({ type: CLEAN_SEARCH_PARAMS });
+
       if (!data.results.length) return showAlert('Movies not found!');
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_FAIL });
@@ -95,7 +96,6 @@ export const AppProvider = ({ children }) => {
       const res = await fetch(url);
       const data = await res.json();
       dispatch({ type: FETCH_MOVIES_SUCCESS, payload: data });
-      dispatch({ type: CLEAN_SEARCH_PARAMS });
       if (!data.results.length) return showAlert('Movies not found!');
     } catch (error) {
       dispatch({ type: FETCH_MOVIES_SUCCESS });
@@ -123,6 +123,8 @@ export const AppProvider = ({ children }) => {
 
   const setSearchParams = (searchParams) =>
     dispatch({ type: SET_SEARCH_PARAMS, payload: searchParams });
+
+  const cleanSeachParams = () => dispatch({ type: CLEAN_SEARCH_PARAMS });
 
   const setPage = () => dispatch({ type: SET_PAGE });
   const showAlert = (msg, time = 2000) => {
@@ -153,6 +155,7 @@ export const AppProvider = ({ children }) => {
         movie: state.movie,
         addRemoveFavorite,
         favorites: state.favorites,
+        cleanSeachParams,
       }}
     >
       {children}
