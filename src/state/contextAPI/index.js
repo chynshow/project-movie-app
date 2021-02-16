@@ -45,7 +45,7 @@ export const AppProvider = ({ children }) => {
   }, [state.favorites]);
 
   useEffect(() => {
-    if (state.searchParams.query) {
+    if (!state.searchParams.advancedSearch && state.searchParams.query) {
       getMovies(state.searchParams.query, state.startPage);
     }
 
@@ -89,7 +89,7 @@ export const AppProvider = ({ children }) => {
     }&language=en-US&include_adult=false&include_video=false${
       query.year ? `&year=${query.year}` : ''
     }${query.average ? `&vote_average.gte=${query.average}` : ''}${
-      query.genres ? `&with_genres=${query.genres.toString()}` : ''
+      query.genres.length ? `&with_genres=${query.genres.toString()}` : ''
     }&page=${startPage}`.trim();
 
     try {

@@ -29,7 +29,7 @@ const AdvancedSearch = ({
         })
       }
     />
-    <TitleTertiary className='font-bold' title='Filter by Rating' />
+    <TitleTertiary className='font-bold' title='Filter by rating' />
     <Input
       label='Include movies that have a rating that is greater or equal to the
     specified value.'
