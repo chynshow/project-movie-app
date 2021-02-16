@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import { AppContext } from '../../state/contextAPI';
 import { CameraSVG, HeartSVG, HeartSVGBlack } from '../SVGs';
+import { TitlePrimary } from '../Title';
 import SearchBar from './SearchBar';
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
         <CameraSVG className='w-40 md:w-48' />
       </div>
       <NavLink className='block text-4xl md:text-5xl uppercase' to='/'>
-        Search movies
+        <TitlePrimary title='Search movies' />
       </NavLink>
       <p className='text-base md:text-xl flex items-end py-4'>
         Find your favorite movies

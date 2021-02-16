@@ -2,7 +2,7 @@ import React from 'react';
 
 export const TitlePrimary = ({ title, className, children }) => {
   return (
-    <h1>
+    <h1 className={className}>
       {title}
       {children}
     </h1>

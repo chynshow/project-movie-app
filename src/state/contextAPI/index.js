@@ -1,4 +1,5 @@
 import { createContext, useEffect, useReducer } from 'react';
+
 import appReducer, {
   ADD_REMOVE_FAVORITE,
   FETCH_MOVIES_FAIL,
