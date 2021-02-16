@@ -6,13 +6,8 @@ import { CogSVG } from '../../SVGs';
 
 const SearchBar = () => {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
-  const { searchParams, setSearchParams, cleanSeachParams } = useContext(
-    AppContext
-  );
+  const { searchParams, setSearchParams } = useContext(AppContext);
   const [values, setValues] = useState(searchParams);
-  useEffect(() => {
-    cleanSeachParams();
-  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();

@@ -10,7 +10,6 @@ import appReducer, {
   SET_PAGE,
   SET_SEARCH_PARAMS,
   SHOW_ALERT,
-  CLEAN_SEARCH_PARAMS,
 } from './';
 import { initState } from './../contextAPI';
 
@@ -77,23 +76,7 @@ describe('test app reducer', () => {
     const res = appReducer(initState, action);
     expect(res).toEqual(output);
   });
-  it('test CLEAN_SEARCH_PARAMS action', () => {
-    const action = {
-      type: CLEAN_SEARCH_PARAMS,
-    };
-    const output = {
-      ...initState,
-      searchParams: {
-        query: '',
-        advancedSearch: false,
-        year: '',
-        average: '',
-        genres: [],
-      },
-    };
-    const res = appReducer(initState, action);
-    expect(res).toEqual(output);
-  });
+
   it('test FETCH_REQUEST action', () => {
     const action = {
       type: FETCH_REQUEST,

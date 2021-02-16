@@ -2,7 +2,6 @@ import { createContext, useEffect, useReducer } from 'react';
 
 import appReducer, {
   ADD_REMOVE_FAVORITE,
-  CLEAN_SEARCH_PARAMS,
   FETCH_MOVIES_FAIL,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIE_FAIL,
@@ -124,8 +123,6 @@ export const AppProvider = ({ children }) => {
   const setSearchParams = (searchParams) =>
     dispatch({ type: SET_SEARCH_PARAMS, payload: searchParams });
 
-  const cleanSeachParams = () => dispatch({ type: CLEAN_SEARCH_PARAMS });
-
   const setPage = () => dispatch({ type: SET_PAGE });
   const showAlert = (msg, time = 2000) => {
     dispatch({ type: SHOW_ALERT, payload: msg });
@@ -155,7 +152,6 @@ export const AppProvider = ({ children }) => {
         movie: state.movie,
         addRemoveFavorite,
         favorites: state.favorites,
-        cleanSeachParams,
       }}
     >
       {children}

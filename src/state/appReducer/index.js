@@ -19,7 +19,7 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   const { type, payload } = action;
-  // console.log(type);
+
   switch (type) {
     case SET_SEARCH_PARAMS:
       return {
@@ -30,17 +30,6 @@ export default (state, action) => {
         totalResult: null,
       };
 
-    case CLEAN_SEARCH_PARAMS:
-      return {
-        ...state,
-        searchParams: {
-          query: '',
-          advancedSearch: false,
-          genres: [],
-          year: '',
-          average: '',
-        },
-      };
     case FETCH_REQUEST:
       return { ...state, loading: true };
 
