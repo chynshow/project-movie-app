@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* @layer utilities {
   @variants hover {
     .filter-none {
       filter: none;
@@ -12,7 +12,7 @@
       filter: grayscale(80%);
     }
   }
-}
+} */
 
 /* Button */
 

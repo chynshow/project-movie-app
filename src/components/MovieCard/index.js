@@ -12,7 +12,7 @@ const MovieCard = ({ movie, reference }) => {
       to={`/movies-details/${movie.id}`}
     >
       <MovieImage
-        className='filter-grayscale hover:filter-none'
+        // className='filter-grayscale hover:filter-none'
         movieImg={movie.poster_path}
       />
       <div>
