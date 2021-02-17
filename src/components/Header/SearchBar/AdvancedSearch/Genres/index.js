@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../../../../Input';
+import { TitleTertiary } from '../../../../Title';
 const genres = [
   {
     id: 28,
@@ -98,6 +99,7 @@ const Genres = ({ setValues, values }) => {
   };
   return (
     <fieldset className='flex flex-col'>
+      <TitleTertiary className='font-bold' title='Filter by genres' />
       {genres.map((genre) => (
         <label className='flex items-center' key={genre.id}>
           <Input

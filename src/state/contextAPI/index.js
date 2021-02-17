@@ -26,6 +26,7 @@ export const initState = {
   searchParams: {
     query: '',
     advancedSearch: false,
+    sortParameter: 'popularity.desc',
     genres: [],
     year: '',
     average: '',
@@ -89,6 +90,8 @@ export const AppProvider = ({ children }) => {
       query.year ? `&year=${query.year}` : ''
     }${query.average ? `&vote_average.gte=${query.average}` : ''}${
       query.genres.length ? `&with_genres=${query.genres.toString()}` : ''
+    }${
+      query.sortParameter ? `&sort_by=${query.sortParameter}` : ''
     }&page=${startPage}`.trim();
 
     try {

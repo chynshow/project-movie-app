@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TitleTertiary } from '../../../Title';
 import Input from './../../../Input';
 import Genres from './Genres';
+import Sorting from './Sorting';
 
 const AdvancedSearch = ({
   handleOnSubmit,
@@ -11,7 +12,6 @@ const AdvancedSearch = ({
   setShowAdvancedSearch,
 }) => (
   <form className='flex flex-col pb-8' onSubmit={(e) => handleOnSubmit(e)}>
-    <TitleTertiary className='font-bold' title='Filter by genres' />
     <Genres setValues={setValues} values={values} />
     <TitleTertiary className='font-bold' title='Filter by year' />
     <Input
@@ -46,6 +46,8 @@ const AdvancedSearch = ({
         })
       }
     />
+
+    <Sorting setValues={setValues} values={values} />
     <div className='flex justify-between py-4'>
       <button className='btn--primary' type='submit'>
         Apply

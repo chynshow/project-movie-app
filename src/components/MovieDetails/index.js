@@ -31,11 +31,30 @@ const MovieDetails = () => {
       <div className='pt-4 md:ml-10'>
         <MovieInfo label='Title' info={movie.title} />
         <MovieInfo label='Original Title' info={movie.original_title} />
-        <MovieInfo label='Average' info={movie.vote_average} />
+        <MovieInfo label='Tag line' info={movie.tagline} />
+        {!!movie.vote_average && (
+          <MovieInfo label='Average' info={movie.vote_average} />
+        )}
         <MovieInfo label='Overview' className='w-full' info={movie.overview} />
-        <MovieInfo label='Release Date' info={movie.release_date} />
+        {!!movie.vote_count && (
+          <MovieInfo label='TMDb vote' info={movie.vote_count} />
+        )}
+        <MovieInfo
+          label='Release Date'
+          info={new Date(movie.release_date).toLocaleDateString('en-US', {
+            weekday: undefined,
+            year: 'numeric',
+            day: 'numeric',
+            month: 'long',
+          })}
+        />
         <MovieInfo label='Run Time' info={`${movie.runtime} min`} />
-        <MovieInfo label='Budget' info={`${movie.budget}$`} />
+        {!!movie.revenue && (
+          <MovieInfo label='Revenue' info={`${movie.revenue}$`} />
+        )}
+        {!!movie.budget && (
+          <MovieInfo label='Budget' info={`${movie.budget}$`} />
+        )}
         <MovieInfoArray label='Genres' array={movie.genres} />
         <MovieInfoArray label='Countries' array={movie.production_countries} />
         <div className='flex flex-col md:flex-row md:justify-between mt-4'>

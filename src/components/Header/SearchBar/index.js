@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Search from './Search';
 import AdvancedSearch from './AdvancedSearch';
 import { AppContext } from './../../../state/contextAPI';
