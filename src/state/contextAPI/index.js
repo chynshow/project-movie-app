@@ -26,7 +26,7 @@ export const initState = {
   searchParams: {
     query: '',
     advancedSearch: false,
-    sortParameter: 'popularity.desc',
+    sortParameter: '',
     genres: [],
     year: '',
     average: '',

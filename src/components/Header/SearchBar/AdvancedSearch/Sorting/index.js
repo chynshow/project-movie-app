@@ -2,11 +2,11 @@ import React from 'react';
 import { TitleTertiary } from '../../../../Title';
 
 const sortOptions = [
+  { label: 'Popularity (from less popular to more)', value: 'popularity.asc' },
   {
     label: 'Popularity (from most popular to less)',
     value: 'popularity.desc',
   },
-  { label: 'Popularity (from less popular to more)', value: 'popularity.asc' },
   { label: 'Release date (A-Z)', value: 'release_date.asc' },
   { label: 'Release date (Z-A)', value: 'release_date.desc' },
   { label: 'Revenue (from lower to higher)', value: 'revenue.asc' },
@@ -25,12 +25,14 @@ const Sorting = ({ setValues, values }) => {
   return (
     <>
       <TitleTertiary className='font-bold' title='Sort by' />
+
       <select
         className='py-2 bg-transparent border border-dashed cursor-pointer outline-none rounded-md'
         onChange={(e) =>
           setValues({ ...values, sortParameter: e.target.value })
         }
       >
+        <option value=''>Choose an option</option>
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
