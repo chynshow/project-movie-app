@@ -4,6 +4,8 @@ import { AppContext } from '../../state/contextAPI';
 import { CameraSVG, HeartSVG, TrashSVG } from '../SVGs';
 import Loader from './../Loader';
 import GoBack from '../GoBackBtn';
+import formatNumber from '../../helpers/formatNumber';
+import dateFormat from '../../helpers/formatDate';
 
 const MovieDetails = () => {
   const { id: movieId } = useParams();
@@ -36,24 +38,14 @@ const MovieDetails = () => {
           <MovieInfo label='Average' info={movie.vote_average} />
         )}
         <MovieInfo label='Overview' className='w-full' info={movie.overview} />
-        {!!movie.vote_count && (
-          <MovieInfo label='TMDb vote' info={movie.vote_count} />
-        )}
-        <MovieInfo
-          label='Release Date'
-          info={new Date(movie.release_date).toLocaleDateString('en-US', {
-            weekday: undefined,
-            year: 'numeric',
-            day: 'numeric',
-            month: 'long',
-          })}
-        />
+
+        <MovieInfo label='Release Date' info={dateFormat(movie.release_date)} />
         <MovieInfo label='Run Time' info={`${movie.runtime} min`} />
         {!!movie.revenue && (
-          <MovieInfo label='Revenue' info={`${movie.revenue}$`} />
+          <MovieInfo label='Revenue' info={formatNumber(movie.revenue)} />
         )}
         {!!movie.budget && (
-          <MovieInfo label='Budget' info={`${movie.budget}$`} />
+          <MovieInfo label='Budget' info={formatNumber(movie.budget)} />
         )}
         <MovieInfoArray label='Genres' array={movie.genres} />
         <MovieInfoArray label='Countries' array={movie.production_countries} />
@@ -65,12 +57,12 @@ const MovieDetails = () => {
           >
             {isInFavorite && (
               <>
-                Remove from Favorite <TrashSVG className='w-5 mx-2' />
+                Remove from Favorite <TrashSVG className='w-5 ml-2' />
               </>
             )}
             {!isInFavorite && (
               <>
-                Add to Favorite <HeartSVG className='w-5 mx-2' />
+                Add to Favorite <HeartSVG className='w-5 ml-2' />
               </>
             )}
           </button>

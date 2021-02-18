@@ -94,24 +94,27 @@ const Genres = ({ setValues, values }) => {
     if (!isChecked)
       return setValues({
         ...values,
-        genres: [...values.genres.filter((item) => item === e.target.value)],
+        genres: [...values.genres.filter((item) => item !== e.target.value)],
       });
   };
   return (
     <fieldset className='flex flex-col'>
       <TitleTertiary className='font-bold' title='Filter by genres' />
-      {genres.map((genre) => (
-        <label className='flex items-center' key={genre.id}>
-          <Input
-            className='mr-2'
-            type='checkbox'
-            name={genre.name}
-            value={genre.id}
-            handleOnChange={(e) => handleOnChange(e)}
-          />
-          {genre.name}
-        </label>
-      ))}
+      {genres.map((genre) => {
+        return (
+          <label className='flex items-center' key={genre.id}>
+            <Input
+              className='mr-2'
+              type='checkbox'
+              checked={values.genres.includes(genre.id.toString())}
+              name={genre.name}
+              value={genre.id}
+              handleOnChange={(e) => handleOnChange(e)}
+            />
+            {genre.name}
+          </label>
+        );
+      })}
     </fieldset>
   );
 };

@@ -1,5 +1,3 @@
-import removeDuplicates from '../../helpers/removeDuplicates';
-
 export const SET_SEARCH_PARAMS = 'SET_SEARCH_PARAMS';
 export const CLEAN_SEARCH_PARAMS = 'CLEAN_SEARCH_PARAMS';
 export const FETCH_REQUEST = 'FETCH_REQUEST';
@@ -19,7 +17,7 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   const { type, payload } = action;
-
+  console.log(type);
   switch (type) {
     case SET_SEARCH_PARAMS:
       return {
@@ -37,7 +35,7 @@ export default (state, action) => {
       return {
         ...state,
         loading: false,
-        movies: removeDuplicates([...state.movies, ...payload.results], 'id'),
+        movies: [...state.movies, ...payload.results],
         totalPages: payload.total_pages,
         totalResult: payload.total_results,
       };

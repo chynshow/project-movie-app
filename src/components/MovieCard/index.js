@@ -16,12 +16,14 @@ const MovieCard = ({ movie, reference }) => {
         movieImg={movie.poster_path}
       />
       <div>
-        <MovieInfo
-          label='Average'
-          className='pt-4 text-center'
-          info={movie.vote_average}
-        />
-        <TitleTertiary className='text-center px-2' title={movie.title} />
+        {!!movie.vote_average && (
+          <MovieInfo
+            label='Average'
+            className='pt-4 text-center'
+            info={movie.vote_average}
+          />
+        )}
+        <TitleTertiary className='text-center p-2' title={movie.title} />
       </div>
     </NavLink>
   );

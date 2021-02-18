@@ -3,6 +3,7 @@ import Loader from './../Loader';
 import { AppContext } from '../../state/contextAPI';
 import MovieCard from '../MovieCard';
 import ItemList from '../ItemList';
+import removeDuplicates from '../../helpers/removeDuplicates';
 
 const MovieList = () => {
   const {
@@ -31,15 +32,17 @@ const MovieList = () => {
     [loading, startPage, totalPages]
   );
 
+  const filteredMovies = removeDuplicates(movies, 'id');
+
   return (
     <ItemList
       title={`${!!totalResult ? `Found ${totalResult} movies` : ''}`}
-      showList={!!movies.length}
+      showList={!!filteredMovies.length}
       className='flex flex-col'
     >
       <ul className='items-container'>
-        {movies.map((movie, idx) => {
-          if (movies.length === idx + 1) {
+        {filteredMovies.map((movie, idx) => {
+          if (filteredMovies.length === idx + 1) {
             return (
               <MovieCard reference={lastMovieEl} key={movie.id} movie={movie} />
             );

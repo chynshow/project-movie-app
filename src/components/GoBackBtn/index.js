@@ -10,7 +10,7 @@ const GoBack = ({ title, className }) => {
       className={`flex items-center btn--secondary ${className}`}
       onClick={() => push('/')}
     >
-      <ArrowBackSVG className='w-6 mx-2' />
+      <ArrowBackSVG className='w-6 mr-2' />
       {title}
     </button>
   );
