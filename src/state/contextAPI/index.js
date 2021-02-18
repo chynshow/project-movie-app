@@ -26,7 +26,7 @@ export const initState = {
   searchParams: {
     query: '',
     advancedSearch: false,
-    sortParameter: '',
+    sortParameter: null,
     genres: [],
     year: '',
     average: '',
@@ -91,7 +91,7 @@ export const AppProvider = ({ children }) => {
     }${query.average ? `&vote_average.gte=${query.average}` : ''}${
       query.genres.length ? `&with_genres=${query.genres.toString()}` : ''
     }${
-      query.sortParameter ? `&sort_by=${query.sortParameter}` : ''
+      query.sortParameter?.value ? `&sort_by=${query.sortParameter.value}` : ''
     }&page=${startPage}`.trim();
 
     try {
@@ -108,7 +108,7 @@ export const AppProvider = ({ children }) => {
 
   const getMovie = async (id) => {
     dispatch({ type: FETCH_REQUEST });
-    const url = `${URL}movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${state.startPage}`;
+    const url = `${URL}movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
     try {
       const res = await fetch(url);
       const data = await res.json();

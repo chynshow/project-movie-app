@@ -13,7 +13,10 @@ const SearchBar = () => {
     e.preventDefault();
     setSearchParams({ ...values, advancedSearch: showAdvancedSearch });
 
-    if (showAdvancedSearch) return setShowAdvancedSearch(false);
+    if (showAdvancedSearch) {
+      setShowAdvancedSearch(false);
+      setValues({ ...values, query: '' });
+    }
   };
 
   return (

@@ -25,16 +25,33 @@ const Sorting = ({ setValues, values }) => {
   return (
     <>
       <TitleTertiary className='font-bold' title='Sort by' />
-
       <select
         className='py-2 bg-transparent border border-dashed cursor-pointer outline-none rounded-md'
-        onChange={(e) =>
-          setValues({ ...values, sortParameter: e.target.value })
+        onChange={({
+          target: {
+            selectedOptions: [option],
+          },
+        }) =>
+          setValues({
+            ...values,
+            sortParameter: {
+              label: option.getAttribute('data-label'),
+              value: option.value,
+            },
+          })
         }
       >
-        <option value=''>Choose an option</option>
+        <option value=''>
+          {values.sortParameter
+            ? values.sortParameter.label
+            : 'Choose an option'}
+        </option>
         {sortOptions.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option
+            data-label={option.label}
+            key={option.value}
+            value={option.value}
+          >
             {option.label}
           </option>
         ))}
