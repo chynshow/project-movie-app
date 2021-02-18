@@ -17,7 +17,7 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   const { type, payload } = action;
-  console.log(type);
+
   switch (type) {
     case SET_SEARCH_PARAMS:
       return {
@@ -43,7 +43,7 @@ export default (state, action) => {
       return { ...state, loading: false, movies: [] };
 
     case SET_PAGE:
-      return { ...state, startPage: state.startPage + 1 };
+      return { ...state, startPage: payload };
     case SET_MOVIE_ID:
       return { ...state, movieId: payload };
     case FETCH_MOVIE_SUCCESS:

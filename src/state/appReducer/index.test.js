@@ -208,10 +208,11 @@ describe('test app reducer', () => {
   it('test SET_PAGE action', () => {
     const action = {
       type: SET_PAGE,
+      payload: 2,
     };
     const output = {
       ...initState,
-      startPage: initState.startPage + 1,
+      startPage: 2,
     };
     const res = appReducer(initState, action);
     expect(res).toEqual(output);

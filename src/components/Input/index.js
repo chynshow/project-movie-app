@@ -15,7 +15,7 @@ const Input = ({
     <>
       <input
         type={type}
-        className={`outline-none bg-transparent italic border-dashed border-b ${className}`}
+        className={`outline-none bg-transparent italic border-dashed  border-b ${className}`}
         name={name}
         value={value}
         placeholder={placeholder}

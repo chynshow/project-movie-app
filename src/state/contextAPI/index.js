@@ -126,7 +126,7 @@ export const AppProvider = ({ children }) => {
   const setSearchParams = (searchParams) =>
     dispatch({ type: SET_SEARCH_PARAMS, payload: searchParams });
 
-  const setPage = () => dispatch({ type: SET_PAGE });
+  const setPage = (page) => dispatch({ type: SET_PAGE, payload: page });
   const showAlert = (msg, time = 2000) => {
     dispatch({ type: SHOW_ALERT, payload: msg });
     setTimeout(() => {

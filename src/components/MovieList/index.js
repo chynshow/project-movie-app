@@ -23,7 +23,7 @@ const MovieList = () => {
       observer.current = new IntersectionObserver((en) => {
         if (en[0].isIntersecting) {
           if (startPage < totalPages) {
-            setPage();
+            setPage(startPage + 1);
           }
         }
       });
